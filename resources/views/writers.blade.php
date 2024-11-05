@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css')}}">
-    @include('layout.navbar')
-    <title>Writers</title>
-</head>
-<body style="background-color: #F0F4EF;">
-    
-    <div class="container mt-5 mb-5 pt-5">
-        <div class="row mb-4 mt-3">
+@extends('layout.master')
+
+@section('title', $writer->name)
+
+@section('contents')
+    <div class="container mb-5">
+        <div class="row mb-4">
             <div class="col-md-1 text-left">
                 <img src="{{ asset($writer->image_url) }}" class="img-fluid rounded-circle" alt="{{ $writer->name }}" style="max-width: 90px; max-height: 90px; margin-left: 10px;">
             </div>
@@ -54,7 +48,4 @@
     @else
         <p>No courses available for this writer.</p>
     @endif
-
-    @include('layout.footer')
-</body>
-</html>
+@endsection

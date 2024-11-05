@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-    @include('layout.navbar')
-    <title>Home</title>
-</head>
-<body style="background-color: #F0F4EF;">
+@extends('layout.master')
 
-    <div class="banner" style="margin-top: 70px; overflow: hidden;">
+@section('title', 'Home')
+
+@section('contents')
+
+    <div class="banner" style="overflow: hidden; margin-top: 70px;">
         <img src="{{ asset('assets/banner.jpeg') }}" class="img-fluid" style="width: 100%; height: 300px;" alt="banner">
     </div>
 
@@ -20,7 +15,7 @@
                     <div class="card mb-4" style="background-color: transparent; border: none;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="{{ asset($course->image_url) }}" class="img-fluid" style="border-radius: 40px;  height: 200px; width: 90%;" alt="{{ $course->title }}">
+                                <img src="{{ asset($course->image_url) }}" class="img-fluid" style="border-radius: 40px; height: 200px; width: 90%;" alt="{{ $course->title }}">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -44,8 +39,4 @@
             @endforeach
         </div>
     </div>
-
-
-@include('layout.footer')
-</body>
-</html>
+@endsection

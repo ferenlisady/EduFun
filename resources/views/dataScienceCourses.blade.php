@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-    @include('layout.navbar')
-    <title>Data Science Courses</title>
-</head>
-<body style="background-color: #F0F4EF;">
+@extends('layout.master')
 
-    <div class="container mt-5 pt-5">
-        <h1 class="mb-5 mt-3">Data Science Courses</h1>
+@section('title', 'Data Science Courses')
+
+@section('contents')
+    <div class="container">
+        <h1 class="mb-5">Data Science Courses</h1>
         <div class="row">
             @foreach ($dataScienceCourses as $course)
                 <div class="col-12 mb-1 mt-4">
@@ -41,6 +35,4 @@
             @endforeach
         </div>
     </div>
-    @include('layout.footer')
-</body>
-</html>
+@endsection

@@ -30,6 +30,4 @@ class CourseController extends Controller
         $courses = Course::paginate(3); 
         return view('popular', compact('courses'));
     }
-
-    // Request $request
 }
