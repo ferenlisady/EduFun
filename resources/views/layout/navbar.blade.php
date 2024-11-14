@@ -12,14 +12,17 @@
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="font-size: medium;"></button>
             </div>
             <div class="offcanvas-body">
+                <form class="d-flex mx-auto" method="GET" action="{{ route('searchCourses') }}" style="width: 50%;">
+                    <input class="form-control me-2" type="search" placeholder="Search courses..." aria-label="Search" name="query">
+                    <button class="btn btn-outline-search" type="submit">Search</button> 
+                </form>
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {{ request()->is('category/data-science') || request()->is('category/network-security') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </a>
+                        <a class="nav-link dropdown-toggle {{ request()->is('category/data-science') || request()->is('category/network-security') ? 'active' : '' }}" 
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
                         <ul class="dropdown-menu dropdown-menu-end bg-white border-0">
                             <li><a class="dropdown-item text-reset" href="{{ route('dataScienceCourses') }}">Data Science</a></li>
                             <li><a class="dropdown-item text-reset" href="{{ route('networkSecurityCourses') }}">Network Security</a></li>

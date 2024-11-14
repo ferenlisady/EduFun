@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        @if ($writer->courses && $writer->courses->isNotEmpty())
+        @if ($writer->courses->isNotEmpty())
         <div class="row justify-content-center" style="margin-left: 120px; margin-right: 100px;">
             @foreach ($writer->courses as $course)
                 <div class="col-12 mb-1 mt-4">
@@ -46,8 +46,8 @@
                 </div>
             @endforeach
         </div>
+        @else
+            <p>No courses available for this writer.</p>
+        @endif
     </div>
-    @else
-        <p>No courses available for this writer.</p>
-    @endif
 @endsection

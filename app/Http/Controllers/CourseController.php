@@ -30,4 +30,16 @@ class CourseController extends Controller
         $courses = Course::paginate(3); 
         return view('popular', compact('courses'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $courses = Course::where('title', 'like', "%{$query}%")
+                        ->orWhere('description', 'like', "%{$query}%")
+                        ->with('writer')
+                        ->get();
+
+        return view('search', compact('courses', 'query'));
+    }
 }

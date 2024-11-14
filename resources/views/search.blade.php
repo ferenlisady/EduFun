@@ -1,13 +1,17 @@
 @extends('layout.master')
 
-@section('title', 'Popular Courses')
+@section('title', $query)
 
 @section('contents')
-    <div class="container">
-        <h1 class="mb-5">Popular Courses</h1>
-        <div class="row">
-            @foreach ($courses as $course)
-                <div class="col-12 mb-2">
+    <div class="container pt-4">
+        <h2>Search Results for "{{ $query }}"</h2>
+
+        @if($courses->isEmpty())
+            <p>No courses found matching your search.</p>
+        @else
+            <div class="row">
+                @foreach($courses as $course)
+                <div class="col-12 mb-1 mt-4">
                     <div class="card mb-4" style="background-color: transparent; border: none;">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -32,16 +36,8 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-
-        <div class="d-flex justify-content-center mt-4 mb-5">
-            <span class="me-2">Page |</span>
-            <span class="me-2">
-                @for ($i = 1; $i <= $courses->lastPage(); $i++)
-                    <a style="text-decoration: none" href="{{ $courses->url($i) }}" class="mx-1 {{ $i === $courses->currentPage() ? 'text-dark fw-bold' : 'text-muted' }}">{{ $i }}</a>
-                @endfor
-            </span>
-        </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 @endsection
